@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+        body {
+            display: grid;
+            grid-gap: 12px;
+            background-color: #F9F9F9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .eCText {
+            color: #757575;
+        }
+
+        .emailCard {
+            border: 1px solid #d9d9d9;
+            border-radius: 2px;
+            max-width: 340px;
+            overflow: hidden;
+        }
+
+        .header {
+            display: grid;
+            align-items: center;
+            border-bottom: 1px solid #d9d9d9;
+            padding: 12px 24px;
+        }
+
+        .footer {
+            background-color: #31302C;
+            color: #757575;
+            padding: 24px;
+        }
+
+        .copyright {
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            margin-bottom: 0;
+        }
+
+        .copyright .icon {
+            font-size: 12px;
+            margin-right: 3px;
+        }
+
+        .year, .eCourse, .allRights {
+            margin-left: 4px;
+        }
+
+        .eCourse {
+            text-transform: capitalize;
+            color: #40C8DC;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #40C8DC;
+            color: #F9F9F9 !important;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            opacity: .9;
+        }
+
+        .ECLogo {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .ECLogo .logoText {
+            text-transform: capitalize;
+            font-weight: 900;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .ECLogo .logoText.lt2 {
+            color: #40C8DC;
+            flex-grow: 1;
+        }
+
+        .ECLogo.white {
+            color: #F9F9F9;
+        }
+
+        .ECLogo.black {
+            color: #31302C;
+        }
+
+        .ECLogoContent {
+            padding: 12px 24px 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="emailCard">
+        <header class="header">
+            <div class="ECLogo black">
+                <p class="logoText lt1">e</p>
+                <p class="logoText lt2">course</p>
+            </div>
+        </header>
+        @RenderBody()
+        <footer class="footer">
+            <div class="ECLogo white">
+                <p class="logoText lt1">e</p>
+                <p class="logoText lt2">course</p>
+            </div>
+            <p class="copyright">
+                <span class="icon">©</span> Copyright
+                <span class="digit year">2020. </span>
+                <span class="eCourse">eCourse</span>.
+                <span class="allRights">All rights reserved.</span>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

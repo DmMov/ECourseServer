@@ -76,7 +76,9 @@ namespace ECourse.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
-            services.AddControllers(options => options.Filters.Add(new ApiExceptionFilter()));
+            services.AddControllersWithViews(options =>
+                options.Filters.Add(new ApiExceptionFilter())
+            ).AddJsonOptions(x => x.JsonSerializerOptions.IgnoreNullValues = true);
         }
 
         public void Configure(IApplicationBuilder app)

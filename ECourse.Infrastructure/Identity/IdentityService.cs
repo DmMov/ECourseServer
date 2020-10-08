@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ECourse.Templates;
+using ECourse.Templates.ViewModels;
 
 namespace ECourse.Infrastructure.Identity
 {
@@ -20,12 +22,21 @@ namespace ECourse.Infrastructure.Identity
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly IMailSenderService mailSenderService;
+        private readonly IRazorViewToStringRenderer renderer;
 
-        public IdentityService(UserManager<User> userManager, SignInManager<User> signInManager, IMailSenderService mailSenderService)
+        const string view = "/Views/Emails/ConfirmEmail";
+
+        public IdentityService(
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            IMailSenderService mailSenderService,
+            IRazorViewToStringRenderer renderer
+        )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.mailSenderService = mailSenderService;
+            this.renderer = renderer;
         }
 
         public async Task<User> GetUserAsync(int userId) => 
@@ -45,10 +56,11 @@ namespace ECourse.Infrastructure.Identity
 
             string confirmationLink = $"http://localhost:8080/confirm-email/{user.Id}/{confirmationToken}";
 
-            await mailSenderService.SendEmailAsync(user.Email,
-                    "ECourse Email Confirmation!",
-                    $"<h2>Hello, {user.UserName}</h2>" +
-                    $"<p>Welcome to ECourse, <a href='{confirmationLink}'>Confirm</a> Your Email!</p>");
+            ConfirmEmailVm confirmEmailVm = new ConfirmEmailVm($"{user.FirstName} {user.LastName}", confirmationLink);
+
+            string body = await renderer.RenderViewToStringAsync($"{view}.cshtml", confirmEmailVm);
+
+            await mailSenderService.SendEmailAsync(user.Email, "ECourse Email Confirmation!", body);
 
             return (result.ToApplicationResult(), user.Email);
         }

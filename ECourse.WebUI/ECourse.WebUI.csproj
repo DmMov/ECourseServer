@@ -19,9 +19,5 @@
     <ProjectReference Include="..\ECourse.Infrastructure\ECourse.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
-
 
 </Project>

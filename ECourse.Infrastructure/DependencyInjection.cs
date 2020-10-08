@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ECourse.Application.Interfaces;
 using ECourse.Infrastructure.Services;
 using ECourse.Infrastructure.Identity;
+using ECourse.Templates;
 
 namespace ECourse.Infrastructure
 {
@@ -24,6 +25,7 @@ namespace ECourse.Infrastructure
             services.AddScoped<IFileService, FileService>();
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IMailSenderService, MailSenderService>();
+            services.AddTransient<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 
             return services;
         }

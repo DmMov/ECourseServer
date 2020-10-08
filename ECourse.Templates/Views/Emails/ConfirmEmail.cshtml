@@ -1,0 +1,13 @@
+﻿@using ECourse.Templates.ViewModels
+@model ConfirmEmailVm
+
+@{
+    Layout = "_EmailLayoutHtml";
+    ViewContext.ViewData["EmailTitle"] = "Hello World!";
+}
+
+<div class="ECLogoContent">
+    <h2>Hi, @Model.UserName and Welcome to ECourse)</h2>
+    <p class="eCText">Please confirm your email.</p>
+    @await Html.PartialAsync("EmailButton", new EmailButtonVm("Confirm!", Model.ConfirmationLink))
+</div>

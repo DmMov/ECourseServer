@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ECourse.Application\ECourse.Application.csproj" />
     <ProjectReference Include="..\ECourse.Domain\ECourse.Domain.csproj" />
+    <ProjectReference Include="..\ECourse.Templates\ECourse.Templates.csproj" />
   </ItemGroup>
 
 </Project>
