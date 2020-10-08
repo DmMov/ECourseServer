@@ -26,7 +26,7 @@ namespace ECourse.Infrastructure.Services
             {
                 UserName = userName,
                 Title = $"The \"{courseName}\" begining notification",
-                Message = $"Hi, {userName}, the course \"{courseName}\" that you are subscribed to starts tomorrow",
+                Message = $"The course \"{courseName}\" that you are subscribed to starts tomorrow",
             };
 
             string body = await renderer.RenderViewToStringAsync(view, model);
@@ -41,7 +41,7 @@ namespace ECourse.Infrastructure.Services
             {
                 UserName = userName,
                 Title = $"The \"{courseName}\" begining notification",
-                Message = $"Hi, {userName}, the course \"{courseName}\" that you are subscribed to starts in a week"
+                Message = $"The course \"{courseName}\" that you are subscribed to starts in a week"
             };
 
             string body = await renderer.RenderViewToStringAsync(view, model);
