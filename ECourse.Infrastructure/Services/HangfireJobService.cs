@@ -25,7 +25,7 @@ namespace ECourse.Infrastructure.Services
             CourseBeginingVm model = new CourseBeginingVm
             {
                 UserName = userName,
-                Title = $"The \"{courseName}\" begining notification",
+                Title = $"The \"{courseName}\" course begining notification",
                 Message = $"The course \"{courseName}\" that you are subscribed to starts tomorrow",
             };
 
@@ -40,7 +40,7 @@ namespace ECourse.Infrastructure.Services
             CourseBeginingVm model = new CourseBeginingVm
             {
                 UserName = userName,
-                Title = $"The \"{courseName}\" begining notification",
+                Title = $"The \"{courseName}\" course begining notification",
                 Message = $"The course \"{courseName}\" that you are subscribed to starts in a week"
             };
 
@@ -55,7 +55,7 @@ namespace ECourse.Infrastructure.Services
             CourseBeginingVm model = new CourseBeginingVm
             {
                 UserName = userName,
-                Title = $"The \"{courseName}\" begining notification",
+                Title = $"The \"{courseName}\" course begining notification",
                 Message = $"The course \"{courseName}\" that you are subscribed to starts in a month"
             };
 
