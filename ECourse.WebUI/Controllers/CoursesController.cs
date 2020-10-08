@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ECourse.Application.Commands.CreateCourse;
+using ECourse.Application.Commands.SubscribeToCourse;
 using ECourse.Application.Queries.GetCourses;
 using ECourse.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -23,6 +24,15 @@ namespace ECourse.WebUI.Controllers
         public async Task<ActionResult<ICollection<CourseVm>>> Create([FromForm] CreateCourseCommand command)
         {
             command.UserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult> Subscribe(SubscribeToCourseCommand command)
+        {
+            /*int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            command.UserId = userId;*/
+
             return Ok(await Mediator.Send(command));
         }
     }

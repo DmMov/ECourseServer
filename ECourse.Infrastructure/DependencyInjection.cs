@@ -26,6 +26,7 @@ namespace ECourse.Infrastructure
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IMailSenderService, MailSenderService>();
             services.AddTransient<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
+            services.AddTransient<IHangfireJobService, HangfireJobService>();
 
             return services;
         }

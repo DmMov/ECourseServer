@@ -1,0 +1,15 @@
+﻿@using ECourse.Templates.ViewModels
+@model SuccessfullSubscriptionVm
+
+@{
+    Layout = "_EmailLayoutHtml";
+    ViewContext.ViewData["EmailTitle"] = "ECourse | Course Subscription Notification";
+}
+
+<div class="ECLogoContent">
+    <h2 class="eCCapitalize">You've successfully subscribed to a Course</h2>
+    <p class="eCText">Hello, @Model.UserName.</p>
+    <p class="eCText">You have successfully subscribed to the course "@Model.CourseName".</p>
+    <p class="eCText">The course starts on <span class="eCCapitalize">@Model.StartDate</span> and ends on <span class="eCCapitalize">@Model.EndDate</span>.</p>
+    <p class="eCText">Good Luck.</p>
+</div>

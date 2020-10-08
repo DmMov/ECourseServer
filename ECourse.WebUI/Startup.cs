@@ -12,6 +12,7 @@ using System.Text;
 using ECourse.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using ECourse.Infrastructure.Models;
+using Hangfire;
 
 namespace ECourse.WebUI
 {
@@ -66,7 +67,8 @@ namespace ECourse.WebUI
             });
 
             services.Configure<MessageSenderOptions>(Configuration);
-
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("ECourseConnection")));
+            services.AddHangfireServer();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -94,6 +96,7 @@ namespace ECourse.WebUI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseHangfireDashboard();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

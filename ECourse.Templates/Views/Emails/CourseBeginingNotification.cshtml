@@ -1,0 +1,14 @@
+﻿@using ECourse.Templates.ViewModels
+@model CourseBeginingVm
+
+@{
+    Layout = "_EmailLayoutHtml";
+    ViewContext.ViewData["EmailTitle"] = "ECourse | Course Begining Notification";
+}
+
+<div class="ECLogoContent">
+    <h2 class="eCCapitalize">@Model.Title</h2>
+    <p class="eCText">Hello, @Model.UserName.</p>
+    <p class="eCText">@Model.Message.</p>
+    <p class="eCText">Good Luck.</p>
+</div>
